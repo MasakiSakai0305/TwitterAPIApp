@@ -18,7 +18,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
     var screenName = ""
     var tweetCount = Int()
     
-    let headers:HTTPHeaders = ["Authorization": "Bearer AAAAAAAAAAAAAAAAAAAAAIGyDAEAAAAAd0lVaFlsQ5Chq1ezGuGlDiIuwDc%3D1juaoiEcJ56BveBSPKwbvYciK9PMEbSudflblX13qYchIVfFRU"]
+    let headers:HTTPHeaders = ["Authorization": ""]
     
     //var profileImageUrl:String!
     var array = [String]()
@@ -48,7 +48,7 @@ class TimeLineViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     func getTweets(){
-        var urlText = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(screenName)&count=\(tweetCount)"
+        let urlText = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=\(screenName)&count=\(tweetCount)"
         
         //Getメソッドでツイート取得
         AF.request(urlText, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
